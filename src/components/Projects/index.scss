@@ -1,0 +1,43 @@
+@use '../../assets/css/main.scss';
+
+.projects-grid {
+    $breakSm: 601px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(100px, 400px));
+    grid-auto-flow: dense;
+    gap: 24px;
+    padding: 0 58px 120px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+
+    @media screen and (max-width: $breakSm) {
+        padding: 0 32px 120px;
+    }
+
+    @media screen and (max-width: 760px) {
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(auto-fill, minmax(200px, 200px));
+    }
+
+    &__project {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__project--featured {
+        grid-column: span 2;
+        order: -1;
+
+        @media screen and (max-width: 760px) {
+            grid-column: span 1;
+        }
+
+        img {
+            object-position: top left;
+        }
+    }
+}

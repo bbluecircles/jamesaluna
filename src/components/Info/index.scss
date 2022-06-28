@@ -1,0 +1,49 @@
+@use '../../assets/css/main.scss';
+
+.Info {
+    $break: 840px;
+    $breakSm: 601px;
+
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 80px 58px 100px 58px;
+    font-family: Inter;
+    color: var(--color-black);
+    background-color: var(--color-white);
+
+    @media screen and (max-width: $break) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+    }
+
+    @media screen and (max-width: $breakSm) {
+        padding: 120px 32px;
+    }
+
+    .info__blocks {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .info__block {
+        display: flex;
+        width: max-content;
+        gap: 15px;
+        text-transform: uppercase;
+
+        span:first-child {
+            opacity: 0.4;
+        }
+    }
+    .info__description {
+        width: 600px;
+        line-height: 200%;
+
+        @media screen and (max-width: $break) {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes loadPage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.loadPageAnimation {
+    animation: loadPage 5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+html {
+    background-color: var(--color-white);
+}
+
+body {
+    opacity: 0;
+}
+
+line, path {
+    fill: var(--color-black);
+    stroke: var(--color-black);
+}
+circle:not([stroke^="#"]) {
+    fill: var(--color-black);
+}
+circle[stroke^="#"] {
+    stroke: var(--color-black);
+}
+input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    width: 0;
+    height: 0;
+    appearance: none;
+    cursor: pointer;
+}
+input[type="checkbox"]:checked :root {
+    --color-white: #000;
+    --color-black: #fff;
+}
+
+$break: 1000px;
+

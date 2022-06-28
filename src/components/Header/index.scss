@@ -1,0 +1,178 @@
+// @use '../../assets/css/main.scss';
+
+header {
+    display: flex;
+    position: absolute;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px 32px;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        svg {
+            width: 105px;
+            height: 76px;
+        }
+    }
+    .header__nav {
+        display: flex;
+        gap: 20px;
+
+        svg {
+            width: 42px;
+            height: 42px;
+        }
+        .header__menu, svg {
+            cursor: pointer;
+            line {
+                transition: 0.5s all ease
+            }
+            &:hover {
+                line {
+                    stroke: var(--color-white);
+                }
+                line:first-child {
+                    transform: skewY(-10deg) translateX(10px);
+                }
+                line:nth-child(2) {
+                    transform: skewY(-10deg);
+                }
+                line:nth-child(3) {
+                    transform: skewY(-10deg) translateX(10px);
+                }
+            }
+        }
+        .change-color-toggle {
+            position: relative;
+            width: fit-content;
+            height: fit-content;
+            cursor: pointer;
+
+            path{
+                transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+                transform-origin: center right;
+            }
+
+            svg {
+                backface-visibility: hidden;
+            }
+
+            &:hover {
+                path {
+                    transform: translateX(-100%) rotateY(-180deg);
+                    fill: var(--color-white);
+                    stroke: var(--color-white);
+                }
+                circle {
+                    stroke: var(--color-white);
+                }
+            }
+        }
+    }
+    @keyframes showMenu {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+    @keyframes hideMenu {
+        0% {
+            opacity: 100%;
+        }
+        100% {
+            opacity: 0%;
+        }
+    }
+    @keyframes goDown {
+        0% {
+            transform: translate(-50%, -50%);
+        }
+        100% {
+            transform: translate(-50%, 200%);
+        }
+    }
+    @keyframes goUp {
+        0% {
+            transform: translate(-50%, 200%);
+        }
+        100% {
+            transform: translate(-50%, -50%);
+        }
+    }
+    .show-header-menu {
+        animation: showMenu 1s ease-in;
+    }
+    .hide-header-menu {
+        animation: hideMenu 1s ease-out;
+    }
+    .bring-element-up {
+        animation: goUp 0.7s cubic-bezier(0.77, 0, 0.175, 1) 1s;
+    }
+    .bring-element-down {
+        animation: goDown 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .header-expand {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: var(--color-white);
+        z-index: -1;
+
+        .header-expand-wrapper {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .header-menu {
+            display: grid;
+            place-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 200%);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: url('../../assets/images/hero_image.jpg');
+            background-position: center;
+            background-size: 100% 100%;
+            text-decoration: none;
+            transition: 0.5s transform ease-in-out;
+
+            img {
+                transition: 0.5s all ease;
+            }
+
+            &:hover {
+                transform: translate(-50%, -55%)!important;
+                img {
+                    transform: translateX(20px);
+                }
+            }
+
+            span {
+                color: white;
+                font-family: Inter;
+                text-transform: uppercase;
+                font-size: 24px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 26px;
+            }
+        }
+    }
+}

@@ -12,8 +12,15 @@ module.exports = {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": "./src/images/"
+      "path": "./src/assets/fonts/"
     },
     __key: "images"
-  }]
+  },
+  {
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      icon: 'src/assets/images/luna.svg',
+    },
+  },
+  ]
 };
