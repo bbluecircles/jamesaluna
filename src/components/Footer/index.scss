@@ -26,6 +26,10 @@ footer {
     }
     .footer-social-links {
         display: flex;
+        
+        @media screen and (max-width: $break) {
+            padding-top: 16px;
+        }
     }
     .footer-social-link:first-child {
         border-left: none;
