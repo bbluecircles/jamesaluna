@@ -37,6 +37,11 @@ const Projects = () => {
                 return (
                     <a href={project.project_data.url.url} className={project_class} key={project.id}>
                         <img src={project.project_data.thumbnail.sourceUrl} />
+                        <div className="projects-grid__project-description">
+                            <div className="content">
+                                <h3>{project.project_data.name}</h3>
+                            </div>
+                        </div>
                     </a>
                 )
             })}

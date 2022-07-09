@@ -8,6 +8,7 @@
     overflow: hidden;
 
     $breakLg: 1200px;
+    $breakMd: 1000px;
     $breakSm: 601px;
 
     .hero__grid {
@@ -50,7 +51,11 @@
         background-size: 300% 300%;
         background-position: 30% 30%;
 
-        animation: 80s ease-in-out infinite moveBg;
+        animation: 68s ease-in-out infinite moveBg;
+
+        @media screen and (max-width: $breakMd) {
+            background-size: cover;
+        }
     }
     h1 {
         position: absolute;
